@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
-import { WalletLibraryContext } from "../_app";
+import { WalletLibraryContext } from "../../store/RootStore";
 
 const WalletConnector = () => {
   const context = useContext(WalletLibraryContext);

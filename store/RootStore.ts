@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { createContext } from "react";
 import { WalletLibrary } from "./interface/WalletLibrary";
 import { KaikasStore } from "./KaikasStore";
 import { MetaMaskStore } from "./MetamaskStore";
@@ -33,3 +34,6 @@ export class RootStore {
     }
   }
 }
+
+export const rootStore = new RootStore();
+export const WalletLibraryContext = createContext<RootStore>(rootStore);

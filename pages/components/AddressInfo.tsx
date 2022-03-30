@@ -1,10 +1,10 @@
 import Caver from "caver-js";
 import { observer } from "mobx-react-lite";
 import { useContext, useEffect, useState } from "react";
-import { WalletLibraryContext } from "../_app";
+import { useWalletLibrary } from "../../hooks/lib/useWalletLibrary";
 
 const AddressInfo = () => {
-  const context = useContext(WalletLibraryContext);
+  const library = useWalletLibrary();
   // const [balance, setBalance] = useState("0");
   // const [address, setAddress] = useState("");
   // const [caver, setCaver] = useState<Caver | undefined>(undefined);
@@ -32,10 +32,10 @@ const AddressInfo = () => {
     <>
       {/* <h1>{address}</h1> */}
       {/* <h3>{balance}</h3> */}
-      {context.library?.active ? (
+      {library?.active ? (
         <>
-          <h1>{context.library.address}</h1>
-          <h2>잔액: {context.library.balance}</h2>
+          <h1>{library.address}</h1>
+          <h2>잔액: {library.balance}</h2>
         </>
       ) : (
         <h1>지갑을 연결해주세요.</h1>
